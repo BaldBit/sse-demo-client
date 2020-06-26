@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     if (isChatStarted) {
-      const source = new EventSource(`http://172.30.197.4:3500/chat/${userName}`);
+      const source = new EventSource(`http://a638bccdf41c.ngrok.io/chat/${userName}`);
 
       source.addEventListener("message", (e) => {
         setConversations((conversations) => conversations.concat([JSON.parse(e.data)]));
@@ -34,7 +34,7 @@ function App() {
   const onMessageSend = () => {
     axios({
       method: 'post',
-      url: 'http://172.30.197.4:3500/write',
+      url: 'http://a638bccdf41c.ngrok.io/write',
       headers: {
         'content-type': 'application/json',
       },
